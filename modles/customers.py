@@ -13,4 +13,6 @@ class Customer(db.Model):
     address = Column(String, nullable=False)
     phone = Column(String, nullable=False)
     points = Column(Float, nullable=False)
-    
+    def add(self):        
+        db.session.add(self)
+        db.session.commit()

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders</title>
+    <link rel="stylesheet" href="style/orders.css" />
+    <script src="./scripts/orders.js" type="module" defer></script>
+  </head>
+  <body>
+
+
+    <header>
+      
+        <img class="logo" src="images/bikya-logo.png" alt="logo" />
+        
+        <div class="menu">
+          <a href="#" tabindex="1" id="home">Home</a>          
+          <button id="switchBtn">switch to buyer</button>
+          <a id="logoutBtn" href="#" class="logout">logout</a>                
+        </div>
+
+
+      </header>
+
+    <div class="sell_order">
+      <!-- new order and switch   -->
+      <div class="buttons">
+        
+        <button id="new_sell_orderBtn">new sell order</button>
+      </div>
+      <!-- all and active buttons -->
+
+      <div class="ordersBtns">
+        <button id="activeBtn">active</button>
+        <button id="allBtn">all</button>
+      </div>
+
+      <div>
+        
+      </div>
+      <div class="orders">
+        <div class="pointsDiv">
+          <p id="total_points">6 active orders</p>
+        </div>
+        
+        <div class="order_info">
+          <p>Date</p>
+          <p>Time</p>
+          <p id="price_point">Order points</p>
+          <p>Order details</p>
+          <p>total weight</p>
+        </div>
+          
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

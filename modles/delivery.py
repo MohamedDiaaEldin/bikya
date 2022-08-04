@@ -11,3 +11,6 @@ class Delivery(db.Model):
     password = Column(String, nullable=False)
     zone_id = Column(Integer, ForeignKey('zone.id'))
 
+    def add(self):        
+        db.session.add(self)
+        db.session.commit()

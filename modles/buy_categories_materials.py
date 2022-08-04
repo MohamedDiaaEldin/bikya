@@ -13,4 +13,6 @@ class BuyCategoryMatrial(db.Model):
     weight = Column(Float, nullable=False)
     price =  Column(Float, nullable=False)
     done =  Column(Boolean, nullable=False)
- 
+    def add(self):        
+        db.session.add(self)
+        db.session.commit()

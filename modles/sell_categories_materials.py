@@ -14,3 +14,6 @@ class SellCategorymatrial(db.Model):
     weight = Column(Float, nullable=False)
     points =  Column(Float, nullable=False)  # default false 
     done =  Column(Boolean, nullable=False)
+    def add(self):        
+        db.session.add(self)
+        db.session.commit()

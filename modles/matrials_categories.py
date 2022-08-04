@@ -10,3 +10,6 @@ class MatrialCategory(db.Model):
     total_weight = Column(Float , nullable=False)
     km_price = Column(Float , nullable=False)
     km_points = Column(Float , nullable=False)
+    def add(self):        
+        db.session.add(self)
+        db.session.commit()

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <script src="scripts/index.js" defer></script>
+    <link rel="stylesheet" href="style/home.css" />
+    <link rel="stylesheet" href="style/orders.css" />
+    <script
+      src="https://kit.fontawesome.com/f8661f3d77.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+
+    <header>
+      
+      <img class="logo" src="images/bikya-logo.png" alt="logo" />
+      
+      <div class="menu">
+        <a href="#" tabindex="1" id="home">Home</a>
+        <a href="#" tabindex="2" id="orders">Orders</a>
+        <a href="#howItWorksSection" tabindex="3" id="howItWorks"
+          >How it works</a>
+        <a href="#about-us" tabindex="4" id="about">About us</a>
+        <a id="loginBtn" href="#" class="login">login</a>      
+      </div>
+
+     
+    </header>
+
+
+    <div id="homePage">
+      <div id="mainContent">
+        <div id="homeDEV">
+        
+        </div>
+  
+        <section id="howItWorksSection" class="how-it-works">
+          <h1>How it works</h1>
+          <div class="buyer-seller">
+            <a href="#buyer" id="buyerBtn" class="buyer">Buyer</a>
+            <a href="#seller" id="sellerBtn" class="seller">Seller</a>
+          </div>
+  
+          <template id="buyerTemplate">
+            <div id="buyer-how-it-works">
+              <div id="seller-how-it-works">
+                <!-- first row info -->
+                <div class="row-info">
+                  <div class="one">
+                    <i class="fa-solid fa-1" id="one"></i>
+                    <h3>Set up your buyer acount</h3>
+                    <p>tell us your personal informatio</p>
+                  </div>
+  
+                  <div class="two">
+                    <i class="fa-solid fa-2"></i>
+                    <h3>select order information</h3>
+                    <p>choose matrial - weight - date and time</p>
+                  </div>
+                </div>
+                <!-- end of first row -->
+  
+                <!-- second row info  -->
+                <div class="row-info">
+                  <div class="three">
+                    <i class="fa-solid fa-3" id="one"></i>
+                    <h3>Submit your order</h3>
+                    <p>
+                      we will be waiting you on the selected date in our store
+                      address
+                    </p>
+                  </div>
+  
+                  <div class="four">
+                    <i class="fa-solid fa-4"></i>
+                    <h3>Go Recive Order</h3>
+                    <p>Get you car and come on the date</p>
+                  </div>
+                </div>
+                <!-- end of second row -->
+              </div>
+            </div>
+          </template>
+  
+          
+          <template id="sellerTemplate">
+            <div id="seller-how-it-works">
+              <!-- first row info -->
+              <div class="row-info">
+                <div class="one">
+                  <i class="fa-solid fa-1" id="one"></i>
+                  <h3>setup your seller acount</h3>
+                  <p>tell us your personal informatio</p>
+                </div>
+  
+                <div class="two">
+                  <i class="fa-solid fa-2"></i>
+                  <h3>select order information</h3>
+                  <p>
+                    choose matrial - Approximate weight - Available date and time
+                  </p>
+                </div>
+              </div>
+              <!-- end of first row -->
+  
+              <!-- second row info  -->
+              <div class="row-info">
+                <div class="three">
+                  <i class="fa-solid fa-3" id="one"></i>
+                  <h3>Submit your order</h3>
+                  <p>Make sure to allow location permission</p>
+                </div>
+  
+                <div class="four">
+                  <i class="fa-solid fa-4"></i>
+                  <h3>Earn Points</h3>
+                  <p>
+                    our workers will come on date and weight your order package
+                    then you will get confirmation email with order details and
+                    your earned points
+                  </p>
+                </div>
+              </div>
+              <!-- end of second row
+                    <i class="fa-solid fa-2"></i>
+                    <h3>select order information</h3>
+                    <p>choose matrial -->
+            </div>
+          </template>
+        </section>
+  
+        <!--  About us section -->
+        <section id="about-us">
+  
+          <h1 class="about-us">About Us</h1>
+  
+          <div id="aboutSection">
+            <pre>We are an Egyptian company
+    that seeks to solve the <span class="greentext"> problem 
+    of waste </span>that can be recycled in Egypt 
+    in a profitable way for users</pre>
+  
+            <img src="./images/waste.png" alt="waste" />
+  
+          </div>
+        </section>
+      </div>    
+      </div>
+    
+    <!-- footer -->
+    <footer>
+      
+      <div class="letTalk">        
+        <div class="leftTalk">
+          <h2>Let's Talk</h2>
+          <pre>
+Development can start with a 
+chat feel free to contact with us</pre
+          >
+        </div>
+
+        <div class="rightTalk">
+          <div class="cop-info">
+            <p>Email</p>
+            <p>placeholder@bikya.com</p>
+          </div>
+
+          <div class="cop-info">
+            <p>Phone</p>
+            <p>(+20) 85561189</p>
+          </div>
+
+          <div class="social">
+            <img src="./images/facebook.svg" alt="facebook" />
+            <img src="./images/instgram.svg" alt="instgram" />
+            <img src="./images/twitter.svg" alt="twitter" />
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>copyright</p>
+        <i class="fa-solid fa-copyright"></i>
+        <p>2021 mohamed diaa &amp; ali hatem</p>
+      </div>
+    </footer>
+  </body>
+</html>
