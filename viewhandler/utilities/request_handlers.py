@@ -16,3 +16,8 @@ def success_handler(message='ok'):
     return jsonify({
     'message':message
 }), 200
+    
+def bad_request(message='bad request'):
+    return jsonify({
+    'message':message
+}), 400

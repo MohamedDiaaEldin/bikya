@@ -2,6 +2,7 @@ from flask import jsonify, make_response, request
 from database import create_app
 from modles.customers import Customer
 from viewhandler.login import login_handler
+from viewhandler.signup import signup_handler
 app = create_app()
 
 
@@ -20,3 +21,4 @@ def index():
     return res
     
 login_handler(app)
+signup_handler(app)

@@ -2,10 +2,10 @@
 from flask import make_response, request
 from viewhandler.utilities.jwt_generator import generate_jwt
 from viewhandler.utilities.request_handlers import server_error, success_handler, unauthenticated_handler
-from .midllewars.validate_user import  validate_rquest
+from .midllewars.validate_user import  validate_login_request
 from modles.customers import Customer
 
-@validate_rquest
+@validate_login_request
 def login():
     try:        
         body = request.get_json()                
