@@ -1,5 +1,5 @@
 
-from flask import make_response, request
+from flask import jsonify, make_response, request
 from viewhandler.utilities.jwt_generator import generate_jwt
 from viewhandler.utilities.request_handlers import server_error, success_handler, unauthenticated_handler
 from .midllewars.validate_user import  authenticate, validate_login_request
@@ -26,11 +26,16 @@ def login():
     except:
         return server_error()
 
-@authenticate
-def test():
-    return 'hi'
+# @authenticate
+# def test():
+#     return 'hi'
 
-def login_handler(app):
+
+def user():
+    return jsonify({"name" : "mohamed", "age": 20})
+
+def login_handler(app):    
     app.route('/login', methods=['POST'])(login)
-    app.route('/test', methods=['POST'])(test)
+    app.route('/user', methods=['GET'])(user)
+    
     
