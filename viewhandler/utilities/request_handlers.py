@@ -21,3 +21,8 @@ def bad_request(message='bad request'):
     return jsonify({
     'message':message
 }), 400
+    
+def conflict_request(message='confilct'):
+    return jsonify({
+    'message':message
+}), 409

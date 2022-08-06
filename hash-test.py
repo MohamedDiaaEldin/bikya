@@ -1,13 +1,16 @@
 import bcrypt
 
-password = b'mypasswodrd'
+from modles.customers import Customer
 
 
-hashed = bcrypt.hashpw(password, bcrypt.gensalt())
+def hash(password):
+    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    
+def is_valid(password, hashed):
+    print(type(password))
+    print(type(hashed))
+    # return bcrypt.checkpw(password.encode('utf-8'), hashed.decode('utf-8'))
 
 
-hashed = b'$2b$12$l9yAOeOJ3B/5OvFRXlD7Xu0mjOk8sK1QenDmf2dRDU0z7aNLA0jIS'
-if bcrypt.checkpw(password, hashed):
-    print('yes')
-else:
-    print('no')
+
+

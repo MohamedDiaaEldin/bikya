@@ -2,18 +2,34 @@
 from flask import request
 from modles.customers import Customer
 from viewhandler.midllewars.validate_user import validate_signup_request
-
+from .utilities import pass_hash
+from .utilities.request_handlers import success_handler, conflict_request
 
 
 
 @validate_signup_request
-def create():
-    print(request.get_json())
+def create_user():
+    body = request.get_json()    
+    ## if user signup 
+    if Customer.query.filter_by(email=body.get('email')).first() :
+        return conflict_request()
+    
+    
     # hash password
-    # add user to database
-    return 'hi'
+    hashed = pass_hash.hash_string(body.get('password'))        
+    
+    # create new customer
+    customer = Customer(first_name=body.get('first_name'), last_name=body.get('last_name'), email=body.get('email'), password=hashed, address=body.get('address'), phone=body.get('phone'), points=0)
+    customer.add()    
+    
+    return success_handler()
 
+#### for testing 
+def is_valid():        
+    print(pass_hash.is_valid(request.get_json().get('password'),  Customer.query.get(7).password))    
+    return 'tested'
 
 def signup_handler(app):
-    app.route('/signup', methods=['POST'])(create)
+    app.route('/signup', methods=['POST'])(create_user)
+    app.route('/valid', methods=['POST'])(is_valid) # for testing 
     

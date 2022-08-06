@@ -3,6 +3,7 @@ from database import create_app
 from modles.customers import Customer
 from viewhandler.login import login_handler
 from viewhandler.signup import signup_handler
+
 app = create_app()
 
 

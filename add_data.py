@@ -5,7 +5,7 @@ from modles.categories import Category
 from modles.delivery import Delivery
 from modles.zone import Zone
 ##  for context
-from main import app
+# from main import app
 
 def add_material(matrials):    
     for material in matrials:

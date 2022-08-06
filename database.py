@@ -11,8 +11,18 @@ def create_app():
     app = Flask(__name__)
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False    
-    app.app_context().push()
-    db.init_app(app)    
+    
+    # app_context().push()
+    # db.init_app(app)    
+    
+    with app.app_context():
+        db.init_app(app)   
+         
     Migrate(app, db)
     from modles import customers, categories, buy_categories_materials, sell_categories_materials, customers_otp, admin, delivery, materials, matrials_categories, zone
     return app
+
+def add(entity):
+    db.session.add(entity)
+    db.session.commit()
+    
