@@ -24,12 +24,8 @@ def create_user():
     
     return success_handler()
 
-#### for testing 
-def is_valid():        
-    print(pass_hash.is_valid(request.get_json().get('password'),  Customer.query.get(7).password))    
-    return 'tested'
 
 def signup_handler(app):
     app.route('/signup', methods=['POST'])(create_user)
-    app.route('/valid', methods=['POST'])(is_valid) # for testing 
+   
     

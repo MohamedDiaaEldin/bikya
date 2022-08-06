@@ -1,8 +1,9 @@
 from flask import make_response, request
-from viewhandler.utilities.request_handlers import bad_request
-from ..utilities.jwt_generator import generate_jwt
+from viewhandler.utilities.request_handlers import bad_request, unauthenticated_handler
+from ..utilities.jwt_generator import is_valid_jwt
 
 
+# validate login request body
 def validate_login_request(f):    
     def is_valid_login_data(*args, **kwargs):
         body = request.get_json()        
@@ -13,7 +14,7 @@ def validate_login_request(f):
     return is_valid_login_data
 
 
-
+# validate signup request body
 def validate_signup_request(f):        
     def is_valid_signup_data(*args, **kwargs):
         body = request.get_json()
@@ -23,23 +24,13 @@ def validate_signup_request(f):
     return is_valid_signup_data
 
 
-# for jwt
-def authenticate(f):
-    @validate_login_request        
-    def decorated_function(*args, **kwargs):        
-        # select customer with it's email 
-        # compare passowrd and email 
-        # if valid :
-        #   generate jwt 
-        #   set jwt into cookies        
-        # else:
-        #   return 'unauthenticated ' 
-        
-        if request.get_json().get('name') != 'ahmed':            
-            return '401 not authenticated'
-        else:            
-            res = make_response()
-            res.set_cookie('jwt', generate_jwt(request.get_json().get('name')))                
-            return res
+
+
+# jwt authentication 
+def authenticate(f):          
+    def auth_function(*args, **kwargs):        
+        user_jwt = request.cookies.get('jwt')
+        if not (user_jwt and is_valid_jwt(user_jwt)):
+            return unauthenticated_handler()        
         return f(*args, **kwargs)
-    return decorated_function
+    return auth_function
