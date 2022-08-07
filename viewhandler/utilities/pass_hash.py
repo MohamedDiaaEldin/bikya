@@ -9,3 +9,5 @@ def hash_string(password):
     
 def is_valid(password, hashed):        
     return True  if bcrypt.checkpw(password.encode('utf-8'), hashed.encode('utf-8')) else False
+
+

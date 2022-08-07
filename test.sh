@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 export DEV=TEST
-
-python3 unit_test.py
-
+cd ./tests/
+python3 tests.py
 export DEV=DEV
+

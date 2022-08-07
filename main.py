@@ -1,25 +1,8 @@
-from flask import jsonify, make_response, request
-from database import create_app
-from modles.customers import Customer
-from viewhandler.login import login_handler
-from viewhandler.signup import signup_handler
+from database import create_app 
+from viewhandler.user_auth import user_auth_handler
+from viewhandler.sell_orders import sell_order_handler
 
-app = create_app()
+app = create_app() # configure app with database 
 
-
-@app.route('/clear')
-def clear():
-    res = make_response()
-    res.set_cookie('jwt', '', expires=0)
-    return res
-    
-@app.route('/')
-def index():
-    res = make_response(jsonify({'name':'ad'}),200)        
-    # print(request.cookies.get('jwt'))
-    # res.set_cookie('jwt','dadfjsfhkasn')    
-    # print(Customer.query.all())
-    return res
-    
-login_handler(app)
-signup_handler(app)
+user_auth_handler(app)
+sell_order_handler(app)
