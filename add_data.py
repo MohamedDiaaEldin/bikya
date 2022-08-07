@@ -4,8 +4,10 @@ from modles.materials import Matrial
 from modles.categories import Category
 from modles.delivery import Delivery
 from modles.zone import Zone
+from modles.customers import Customer
 ##  for context
-# from main import app
+from main import app
+
 
 def add_material(matrials):    
     for material in matrials:
@@ -48,6 +50,9 @@ with open('data/material.csv') as csv_file:
         line_count += 1
     print(f'Processed {line_count} lines.')
 
+
+
 add_delivery()
+
 
 

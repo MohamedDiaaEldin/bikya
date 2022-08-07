@@ -30,7 +30,6 @@ def user_login():
     try:
         # extract data from request        
         body = request.get_json()                
-        
         # get user data        
         customer = Customer.query.filter_by(email=body.get('email')).first()        
         
