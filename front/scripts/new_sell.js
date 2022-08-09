@@ -100,8 +100,6 @@ const submitClickHandler = () => {
         "public_id" : localStorage.public_id,
         "sell_data" : sell_order_data
     }
-    print(data)
-
     fetchRequest('sell_order', 'POST', data, false).then( response =>{
         if (!response.ok){
             throw new Error(response.status)

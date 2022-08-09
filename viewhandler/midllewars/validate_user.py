@@ -1,4 +1,4 @@
-from flask import make_response, request
+from flask import  request
 from viewhandler.utilities.request_handlers import bad_request, unauthenticated_handler
 from ..utilities.jwt_generator import is_valid_jwt
 
@@ -8,7 +8,7 @@ def validate_login_request(f):
     def is_valid_login_data(*args, **kwargs):
         body = request.get_json()        
         if not (body and body.get('email') and body.get('password') ):
-            return 'bad request'
+            return bad_request()
         
         return f(*args, **kwargs)
     return is_valid_login_data

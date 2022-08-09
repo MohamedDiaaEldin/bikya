@@ -7,7 +7,6 @@ from .midllewars.validate_user import  validate_login_request,validate_signup_re
 from modles.customers import Customer # Cutomer model
 
 
-
 @validate_signup_request
 def create_user():
     body = request.get_json()    

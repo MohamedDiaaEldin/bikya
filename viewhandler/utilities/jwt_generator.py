@@ -11,3 +11,8 @@ def is_valid_jwt(token):
     except:
         return False
     
+def decode_jwt(token):
+    try:
+        return jwt.decode(token, 'secret', algorithms='HS256')
+    except:
+        return None
