@@ -1,3 +1,4 @@
+from functools import wraps
 from flask import  request
 from viewhandler.utilities.request_handlers import bad_request, unauthenticated_handler
 from ..utilities.jwt_generator import is_valid_jwt
@@ -27,10 +28,12 @@ def validate_signup_request(f):
 
 
 # jwt authentication 
-def authenticate(f):          
-    def auth_function(*args, **kwargs):        
+def authenticate(f):   
+    print('in auth----->' , __name__)       
+    @wraps(f)
+    def is_authenticated(*args, **kwargs):
         user_jwt = request.cookies.get('jwt')
         if not (user_jwt and is_valid_jwt(user_jwt)):
             return unauthenticated_handler()        
         return f(*args, **kwargs)
-    return auth_function
+    return is_authenticated

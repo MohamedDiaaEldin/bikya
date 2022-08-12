@@ -19,9 +19,8 @@ def makeCustomer():
         }
         return customer
     
-class CustomerTest(unittest.TestCase):
     
-    
+class CustomerTest(unittest.TestCase):      
     customer  = makeCustomer()
          
     # main setup
@@ -30,8 +29,6 @@ class CustomerTest(unittest.TestCase):
         self.app = app                 
         self.client = self.app.test_client
     
-  
-
     def test_signup(self):    
         # self.customer = self.makeCustomer()
         response = self.client().post('/signup', 
@@ -40,18 +37,6 @@ class CustomerTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         
     
-
-    # def test_login(self):        
-    #     customer_data = {
-    #         'email' : Login.customer.get('email'),
-    #         'password' :Login.customer.get('password')
-    #     }
-    #     response = self.client().post('/login', 
-    #                    data=json.dumps(customer_data),
-    #                    content_type='application/json')        
-        
-    #     self.assertEqual(response.status_code, 200)
-
 def start():
     loader = unittest.TestLoader()
     loader.sortTestMethodsUsing = None

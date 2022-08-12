@@ -85,7 +85,6 @@ const buy_order_handler = () => {
         "time": timeInput.value,
         "category_id": parseInt(categoriesSelect.options[categoriesSelect.selectedIndex].value),
         "matrial_id": parseInt(matrialsSelect.options[matrialsSelect.selectedIndex].value),
-
         "weight": parseInt(weightInput.value)
     }
 
