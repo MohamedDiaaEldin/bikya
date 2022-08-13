@@ -51,8 +51,8 @@ def create_sell_order():
         return success_handler()
     except:
         return server_error()
-    
-    
+
+
 @authenticate
 @validate_create_buy_order
 def check_weight():

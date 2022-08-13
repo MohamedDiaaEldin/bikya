@@ -6,6 +6,8 @@ from ..utilities.jwt_generator import is_valid_jwt
 
 # validate login request body
 def validate_login_request(f):    
+    
+    @wraps(f)
     def is_valid_login_data(*args, **kwargs):
         body = request.get_json()        
         if not (body and body.get('email') and body.get('password') ):
@@ -17,6 +19,7 @@ def validate_login_request(f):
 
 # validate signup request body
 def validate_signup_request(f):        
+    @wraps(f)
     def is_valid_signup_data(*args, **kwargs):
         body = request.get_json()
         if not (body and body.get('first_name') and body.get('last_name') and body.get('email') and body.get('password') and body.get('address') and body.get('phone')):
@@ -29,7 +32,6 @@ def validate_signup_request(f):
 
 # jwt authentication 
 def authenticate(f):   
-    print('in auth----->' , __name__)       
     @wraps(f)
     def is_authenticated(*args, **kwargs):
         user_jwt = request.cookies.get('jwt')

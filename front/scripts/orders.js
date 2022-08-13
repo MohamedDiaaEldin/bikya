@@ -259,9 +259,10 @@ switch_btn.addEventListener('click', () => {
 
 })
 
-if (jwt === "" || public_id === "") {
-  window.location.href = "login.html";
-}
+// if (jwt === "" || public_id === "") {
+//   window.location.href = "login.html";
+// }
+console.log('cookies are ', document.cookie)
 const data = { jwt: jwt, public_id: public_id }
 
 

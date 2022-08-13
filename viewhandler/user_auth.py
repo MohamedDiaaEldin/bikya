@@ -38,15 +38,17 @@ def user_login():
         
         res = make_response(success_handler())        
         # set jwt in cookie
-        res.set_cookie('jwt', generate_jwt(body.get('email')))
-        
+        res.set_cookie('jwt', generate_jwt(body.get('email')))                
         return res
     except:
         return server_error()
 
+def email_user():
+    return 'hi'
 
 
 def user_auth_handler(app):
     app.route('/login', methods=['POST'])(user_login)
     app.route('/signup', methods=['POST'])(create_user)
+    app.route('/customer_email', methods=['POST'])(email_user)
     

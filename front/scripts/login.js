@@ -31,17 +31,14 @@ const loginClickHandler = () => {
 
   fetchRequest("login", "POST", customer, false)
     .then((response) => {
+      
+      console.log(response.headers)
       if (!response.ok) {
         throw new Error(response.status);
       }
-      return response.json();
-    })
-    .then((json_data) => {
-      if (json_data.status_code === 200) {
-        localStorage.setItem('jwt', json_data.jwt)
-        localStorage.setItem('public_id', json_data.public_id)
-        window.location.href = 'orders.html'
-      }
+
+      // window.location.href = 'orders.html'
+      
     })
     .catch((error) => {
       // if user unauthorized
